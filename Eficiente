@@ -1,0 +1,24 @@
+def es_palindromo_eficiente(frase):
+    # Limpieza inicial
+    frase_limpia = ''.join(caracter for caracter in frase if caracter.isalnum()).lower()
+      
+    # Dos punteros para comparación eficiente
+    izquierda = 0
+    derecha = len(frase_limpia) - 1
+    
+    while izquierda < derecha:
+        if frase_limpia[izquierda] != frase_limpia[derecha]:
+            return False
+        izquierda += 1
+        derecha -= 1
+    return True
+
+# Pruebas con frases complejas
+frases = [
+    "Anita lava la tina",
+    "Sé verlas al revés",
+    "Esto no es un palíndromo"
+]
+
+for frase in frases:
+    print(f'"{frase[:15]}..." → {es_palindromo_eficiente(frase)}')
